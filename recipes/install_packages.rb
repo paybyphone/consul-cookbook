@@ -16,17 +16,25 @@
 #
 # NOTE: This is only supported for Ubuntu 12.04LTS and 14.04LTS.
 
-if node['consul']['use_packagecloud_repo']
+if node['platform_family'] == 'debian'
 
-  packagecloud_repo "darron/consul" do
-    type "deb"
+  if node['consul']['use_packagecloud_repo']
+
+    packagecloud_repo "darron/consul" do
+      type "deb"
+    end
+
+    packagecloud_repo "darron/consul-webui" do
+      type "deb"
+    end
+
   end
 
-  packagecloud_repo "darron/consul-webui" do
-    type "deb"
-  end
+  package 'consul'
+  package 'consul-webui'
 
+elsif node['platform_family'] == 'windows'
+  
+  include_recipe 'consul::install_windows'
+  
 end
-
-package 'consul'
-package 'consul-webui'
