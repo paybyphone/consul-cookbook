@@ -14,7 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-# NOTE: This is only supported for Ubuntu 12.04LTS and 14.04LTS.
+# NOTE: This is only supported for Ubuntu 12.04LTS and 14.04LTS and Windows
 
 if node['platform_family'] == 'debian'
 
@@ -35,6 +35,11 @@ if node['platform_family'] == 'debian'
 
 elsif node['platform_family'] == 'windows'
   
-  include_recipe 'consul::install_windows'
+  include_recipe 'chocolatey::default'
+
+  chocolatey 'consul' do
+    version node['consul']['version']
+    source node['consul']['choco_source']
+  end
   
 end

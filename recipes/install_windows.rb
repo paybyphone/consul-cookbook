@@ -16,11 +16,5 @@
 #
 
 if node['platform'] == 'windows'
-
-  include_recipe 'chocolatey::default'
-
-  chocolatey 'consul' do
-    version node['consul']['version']
-    source node['consul']['choco_source']
-  end
+  include_recipe 'consul::install_packages'
 end
