@@ -5,6 +5,10 @@ describe command('where.exe /R C:\ProgramData\chocolatey\bin consul') do
   its(:stdout) { should match "C:\\ProgramData\\chocolatey\\bin\\consul.exe\n" }
 end
 
+describe command('C:\ProgramData\chocolatey\bin\consul.exe --version') do
+  its(:stdout) { should match %r{v0.5.0} }
+end
+
 describe service('consul') do
   it { should be_enabled }
   it { should be_running }
