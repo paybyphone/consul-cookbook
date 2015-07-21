@@ -28,7 +28,7 @@ Installs and configures [Consul][1] client, server and UI.
     <td><tt>['consul']['version']</tt></td>
     <td>String</td>
     <td>Version to install</td>
-    <td><tt>0.5.0</tt></td>
+    <td><tt>0.5.2</tt><br/><tt>0.5.0</tt> for Windows</td>
   </tr>
   <tr>
     <td><tt>['consul']['base_url']</tt></td>
@@ -48,7 +48,7 @@ Installs and configures [Consul][1] client, server and UI.
     <td>Method to install consul with when using default recipe: 'binary', 'source' or 'windows'</td>
     <td>
       \*nix: <tt> binary</tt></br>
-      Windows: <tt>binary</tt>
+      Windows: <tt>package</tt> (<tt>windows</tt> is a synonym for <tt>package</tt>)
     </td>
   </tr>
   <tr>
