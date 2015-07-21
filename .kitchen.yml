@@ -12,10 +12,7 @@ platforms:
   - name: centos-6.5
   - name: windows-2012r2
     driver_config:
-      network:
-        - ["forwarded_port", {guest: 5985, host: 5985}]
       communicator: winrm
-      gui: true
       box_url: https://wrock.blob.core.windows.net/vhds/vbox2012r2.box
       customize:
         usbehci: "off"
