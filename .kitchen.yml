@@ -100,7 +100,7 @@ suites:
         service_user: vagrant
   - name: packages_win
     includes:
-      - windows-2012r2-wrock
+      - windows-2012r2
     run_list:
       - recipe[consul::default]
     attributes:
